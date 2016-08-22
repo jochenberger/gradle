@@ -25,6 +25,11 @@ import java.util.Collection;
 import java.util.List;
 
 public class VisitableURLClassLoader extends URLClassLoader implements ClassLoaderHierarchy {
+    
+    static {
+        ClassLoader.registerAsParallelCapable();
+    }
+
     public VisitableURLClassLoader(ClassLoader parent, Collection<URL> urls) {
         super(urls.toArray(new URL[0]), parent);
     }
